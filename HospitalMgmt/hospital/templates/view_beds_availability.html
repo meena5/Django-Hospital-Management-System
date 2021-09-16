@@ -1,0 +1,39 @@
+{% extends 'navigation_bar.html' %}
+
+{% load static %}
+
+{% block body %}
+
+<div class="container" style="margin-top: 50px;">
+    <h2 class="text-center">View Beds </h2>
+    <br><br>
+
+    <table class="table table-hover" id="example">
+        <thead>
+            <tr>
+                <th>Type</th>
+                <th>Status</th>
+                <th>Delete</th>
+                         
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in ap  %}
+            <tr> 
+                <td>{{i.type}}</td>
+                <td>{{i.status}}</td> 
+                <td><a href="{% url 'delete_bed' i.id %}" onclick="return confirm('Are you really want to delete?')" class="btn btn-danger">Delete</a></td> 
+            </tr>
+            
+            {%endfor  %}
+            
+        </tbody>
+    </table>
+    </div>
+
+
+
+
+
+
+{% endblock %}
